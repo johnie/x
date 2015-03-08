@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 /**
- * Base
+ * Common
  */
 
-@import "base/links";
+@import "util";
 
 
 /**
@@ -17,13 +17,14 @@
 
 
 /**
- * Common
+ * Base
  */
 
-@import "util";
+@import "base/links";
+
 
 html{
-  font: #{($base-font-size/16px)*1em}/#{$line-height-ratio} $base-font-family;
+  font: #{($base-font-size/16px)*1em}/#{$base-line-height} $base-font-family;
   overflow-y: scroll;
   min-height: 100%;
 }
