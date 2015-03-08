@@ -1,17 +1,13 @@
 name: Malcolm X
 description: The future belongs to those who prepare for it today.
 baseurl: ''
+lang: en
 
 # Build settings
 markdown: kramdown
 highlighter: pygments
 permalink: /:title
 
-# Sass
-sass:
-  sass_dir: assets/_sass
-  style: :compressed
-
 # Includes / Excludes
 include: ['.htaccess']
-exclude: ['node_modules', 'Gulpfile.js', 'packages.json', 'bower.json', '.bowerrc', '.editorconfig']
+exclude: ['node_modules', 'bower_components', 'Gulpfile.js', 'packages.json', 'bower.json', '.bowerrc', '.editorconfig']

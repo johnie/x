@@ -22,13 +22,14 @@
     "gulp-autoprefixer": "*",
     "gulp-clean": "*",
     "gulp-concat": "*",
-    "gulp-rename": "*",
     "gulp-cssmin": "*",
     "gulp-header": "*",
     "gulp-imagemin": "*",
     "gulp-plumber": "*",
+    "gulp-rename": "*",
     "gulp-sass": "*",
     "gulp-size": "*",
-    "gulp-uglify": "*"
+    "gulp-uglify": "*",
+    "gulp-util": "^3.0.4"
   }
 }
