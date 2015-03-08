@@ -14,9 +14,11 @@ var gulp        = require('gulp');
 var package     = require('./package.json');
 var plumber     = require('gulp-plumber');
 var clean       = require('gulp-clean');
+var cp          = require('child_process');
 var concat      = require('gulp-concat');
 var cssmin      = require('gulp-cssmin');
 var imagemin    = require('gulp-imagemin');
+var changed     = require('gulp-changed');
 var header      = require('gulp-header');
 var rename      = require('gulp-rename');
 var sass        = require('gulp-sass');
@@ -24,7 +26,6 @@ var uglify      = require('gulp-uglify');
 var gutil       = require('gulp-util');
 var browserSync = require('browser-sync');
 var prefix      = require('gulp-autoprefixer');
-var pngcrush    = require('imagemin-pngcrush');
 var reload      = browserSync.reload;
 
 
@@ -60,7 +61,7 @@ var config = {
   },
   markup: {
     src: ['!node_modules/', '!bower_components/', '_config.yml', './**/*.html', 'index.html', '_layouts/*.html', '_posts/*', '_includes/*']
-  }
+  },
   bowerjs:{
     base: './bower_components/'
   },
@@ -112,8 +113,8 @@ gulp.task('browsersync', ['jekyll-build', 'sass', 'scripts'], function() {
 gulp.task('sass', ['images'], function () {
   return gulp.src(config.sass.src)
     .pipe(sass(config.sass.settings))
-    .on('error', handleErrors)
-    .pipe(autoprefixer({ browsers: ['last 2 version'] }))
+    .on('error', function(err) { gutil.log(err.message); })
+    .pipe(prefix({ browsers: ['last 2 version'] }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(header(banner, { package: package }))
     .pipe(gulp.dest(config.sass.dest))
@@ -133,9 +134,6 @@ gulp.task('scripts', function() {
     .pipe(concat(
       'main.js'
     ))
-    .pipe(browserSync.reload({
-      stream:true
-    }))
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
@@ -194,7 +192,7 @@ gulp.task('size', function () {
  * Default
  */
 
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['browsersync', 'jekyll-build', 'watch']);
 
 
 /*-------------------------------------------------------------------
@@ -207,9 +205,9 @@ gulp.task('setWatch', function() {
   global.isWatching = true;
 });
 
-gulp.task('watch', ['setWatch', 'browsersync'], function() {
-  gulp.watch(config.sass.src,     ['sass']);
-  gulp.watch(config.scripts.src,  ['scripts']);
-  gulp.watch(config.images.src,   ['images']);
-  gulp.watch(config.markup.src,   ['browsersync']);
+gulp.task('watch', ['browsersync', 'setWatch'], function() {
+  gulp.watch(config.sass.src,     ['sass', 'jekyll-rebuild']);
+  gulp.watch(config.scripts.src,  ['scripts', 'jekyll-rebuild']);
+  gulp.watch(config.images.src,   ['images', 'jekyll-rebuild']);
+  gulp.watch(config.markup.src,   ['jekyll-rebuild']);
 });

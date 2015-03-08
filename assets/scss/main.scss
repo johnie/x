@@ -1,6 +1,7 @@
 @import "generic/normalize";
-@import "utils";
+@import "util";
 
 body{
-  background-color: $brand-color;
+  background-color: $base-ui-color;
+  color: white;
 }

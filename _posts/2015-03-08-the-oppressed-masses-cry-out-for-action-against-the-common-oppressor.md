@@ -1,6 +1,6 @@
 ---
 layout: post
-title "The Oppressed Masses Cry Out for Action Against the Common Oppressor"
+title: "The Oppressed Masses Cry Out for Action Against the Common Oppressor"
 ---
 
 <p class="lead">It is only being a Muslim which keeps me from seeing people by the color of their skin. This religion teaches brotherhood, but I have to be a realist — I live in America, a society which does not believe in brotherhood in any sense of the term. Brute force is used by white racists to suppress nonwhites. It is a racist society ruled by segregationists.</p>

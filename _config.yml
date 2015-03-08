@@ -2,6 +2,7 @@ name: Malcolm X
 description: The future belongs to those who prepare for it today.
 baseurl: ''
 lang: en
+analytics: 'UA-XXXXX-X'
 
 # Build settings
 markdown: kramdown
@@ -10,4 +11,4 @@ permalink: /:title
 
 # Includes / Excludes
 include: ['.htaccess']
-exclude: ['node_modules', 'bower_components', 'Gulpfile.js', 'packages.json', 'bower.json', '.bowerrc', '.editorconfig']
+exclude: ['node_modules', 'bower_components', 'Gulpfile.js', 'packages.json', 'bower.json', '.bowerrc', '.editorconfig', 'README.md', 'assets/scss']
