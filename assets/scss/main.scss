@@ -1,7 +1,29 @@
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+
+/**
+ * Base
+ */
+
+@import "base/links";
+
+
+/**
+ * Generic
+ */
+
 @import "generic/normalize";
+
+
+/**
+ * Common
+ */
+
 @import "util";
 
-body{
-  background-color: $base-ui-color;
-  color: white;
+html{
+  font: #{($base-font-size/16px)*1em}/#{$line-height-ratio} $base-font-family;
+  overflow-y: scroll;
+  min-height: 100%;
 }

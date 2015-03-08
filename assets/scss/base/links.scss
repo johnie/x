@@ -1,0 +1,11 @@
+a{
+  color: $brand-color;
+  text-decoration: none;
+  border-bottom: 1px solid $base-ui-color;
+  transition: color .25 ease;
+
+  &:hover,
+  &:focus{
+    color: $base-ui-color;
+  }
+}
