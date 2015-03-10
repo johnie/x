@@ -3,7 +3,7 @@
     {% for page in site.pages %}
       {% if page.title %}
         <li>
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          <a class="page-link" data-page-id="{{ page.title | downcase | replace:' ','-' }}" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
         </li>
       {% endif %}
     {% endfor %}
